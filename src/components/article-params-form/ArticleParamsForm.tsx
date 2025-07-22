@@ -50,7 +50,7 @@ export const ArticleParamsForm = ({
 		const handleClick = (event: MouseEvent) => {
 			const target = event.target as Node;
 			if (asideRef.current && !asideRef.current.contains(target)) {
-				setIsOpen(true);
+				setIsOpen(false);
 			}
 		};
 		window.addEventListener('mousedown', handleClick);
@@ -67,7 +67,7 @@ export const ArticleParamsForm = ({
 					ref={asideRef}
 					className={styles.container + ' ' + styles.container_open}>
 					<form className={styles.form}>
-						<Text as='h2' size={31} weight={800} uppercase dynamicLite>
+						<Text as='h2' size={31} weight={800} uppercase>
 							Задайте параметры
 						</Text>
 						<Select
@@ -112,11 +112,13 @@ export const ArticleParamsForm = ({
 								htmlType='button'
 								type='clear'
 								onClick={() => {
-									setSelectedFont(currentState.fontFamilyOption);
-									setSelectedFontSize(currentState.fontSizeOption);
-									setSelectedFontColor(currentState.fontColor);
-									setSelectedBackgroundColor(currentState.backgroundColor);
-									setSelectedContentWidth(currentState.contentWidth);
+									setSelectedFont(defaultArticleState.fontFamilyOption);
+									setSelectedFontSize(defaultArticleState.fontSizeOption);
+									setSelectedFontColor(defaultArticleState.fontColor);
+									setSelectedBackgroundColor(
+										defaultArticleState.backgroundColor
+									);
+									setSelectedContentWidth(defaultArticleState.contentWidth);
 								}}
 							/>
 							<Button
